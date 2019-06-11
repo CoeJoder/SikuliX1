@@ -9,6 +9,7 @@ import org.sikuli.android.ADBTest;
 import org.sikuli.basics.*;
 import org.sikuli.idesupport.IDESplash;
 import org.sikuli.idesupport.IDESupport;
+import org.sikuli.idesupport.IDETaskbarSupport;
 import org.sikuli.idesupport.IIDESupport;
 import org.sikuli.script.Image;
 import org.sikuli.script.Sikulix;
@@ -48,7 +49,12 @@ public class SikulixIDE extends JFrame implements InvocationHandler {
 
   static RunTime runTime;
 
+  static final java.awt.Image ICON_IMAGE = Toolkit.getDefaultToolkit().createImage(
+      SikulixIDE.class.getResource("/icons/sikulix.png"));
+
   public static void main(String[] args) {
+
+    IDETaskbarSupport.setTaksIcon(ICON_IMAGE);
 
     RunTime.afterStart(RunTime.Type.IDE, args);
 
@@ -136,8 +142,15 @@ public class SikulixIDE extends JFrame implements InvocationHandler {
   //</editor-fold>
 
   //<editor-fold desc="01 IDE instance">
+  public Map<String, String> getCopiedImgs() {
+    return copiedImgs;
+  }
+
+  Map<String, String> copiedImgs = new HashMap<String, String>();
+
   private SikulixIDE() {
     super("SikulixIDE");
+    this.setIconImage(ICON_IMAGE);
   }
 
   static synchronized SikulixIDE get() {
@@ -1290,6 +1303,7 @@ public class SikulixIDE extends JFrame implements InvocationHandler {
         fname = codePane.saveAsSelect(accessingAsFile);
         if (fname != null) {
           setCurrentFileTabTitle(fname);
+          codePane.setDirty(false);
         } else {
           log(-1, "doSaveAs: %s not completed", orgName);
         }

@@ -235,7 +235,6 @@ public class EditorPane extends JTextPane {
   private void initForScriptType() {
     String scrType = null;
 
-    log(lvl, "doInit: %s", runner);
     // initialize runner to speed up first script run
     (new Thread() {
       @Override
@@ -1417,8 +1416,6 @@ public class EditorPane extends JTextPane {
   private class MyTransferHandler extends TransferHandler {
 
     private static final String me = "EditorPaneTransferHandler: ";
-    Map<String, String> _copiedImgs = new HashMap<String, String>();
-
     @Override
     public void exportToClipboard(JComponent comp, Clipboard clip, int action) {
       super.exportToClipboard(comp, clip, action);
@@ -1448,6 +1445,7 @@ public class EditorPane extends JTextPane {
 
     @Override
     protected Transferable createTransferable(JComponent c) {
+      Map<String, String> _copiedImgs = SikulixIDE.get().getCopiedImgs();
       JTextPane aTextPane = (JTextPane) c;
 
       SikuliEditorKit kit = ((SikuliEditorKit) aTextPane.getEditorKit());
@@ -1459,7 +1457,8 @@ public class EditorPane extends JTextPane {
       try {
         _copiedImgs.clear();
         kit.write(writer, doc, sel_start, sel_end - sel_start, _copiedImgs);
-        return new StringSelection(writer.toString());
+        StringSelection copiedString = new StringSelection(writer.toString());
+        return copiedString;
       } catch (Exception e) {
         log(-1, "MyTransferHandler: createTransferable: Problem creating text to copy\n%s", e.getMessage());
       }
@@ -1479,6 +1478,7 @@ public class EditorPane extends JTextPane {
 
     @Override
     public boolean importData(JComponent comp, Transferable t) {
+      Map<String, String> _copiedImgs = SikulixIDE.get().getCopiedImgs();
       DataFlavor htmlFlavor = DataFlavor.stringFlavor;
       if (canImport(comp, t.getTransferDataFlavors())) {
         try {

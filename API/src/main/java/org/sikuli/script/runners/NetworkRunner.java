@@ -90,7 +90,7 @@ public class NetworkRunner extends AbstractScriptRunner {
 
   @Override
   public boolean isSupported() {
-    return true;
+    return false;
   }
 
   @Override
