@@ -184,6 +184,10 @@ public class RunTime {
       Debug.globalTraceOn();
       Debug.setStartWithTrace();
     }
+    
+    if(!getLogFile().isEmpty()) {
+      Debug.setLogFile(getLogFile());
+    }
 
     if (runningScripts()) {
       int exitCode = Runner.runScripts(RunTime.getRunScripts());
@@ -191,8 +195,11 @@ public class RunTime {
     }
 
     if (shouldRunServer()) {
-      if (ServerRunner.run(null)) {
-        Sikulix.terminate(1, "");
+//      if (!isVerbose()) {
+//        Sikulix.terminate(1, "SikulixServer: currently not supported");
+//      }
+      if (!ServerRunner.run(null)) {
+        Sikulix.terminate(1, "SikulixServer: terminated with errors");
       }
       Sikulix.terminate();
     }
