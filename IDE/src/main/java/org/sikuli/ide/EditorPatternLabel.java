@@ -175,7 +175,8 @@ public class EditorPatternLabel extends EditorRegionLabel {
         imgpop.setUndecorated(true);
         imgpop.setResizable(false);
         imgpop.setFocusableWindowState(false);
-        imgpop.setBackground(Color.WHITE);
+        imgpop.setBackground(Color.LIGHT_GRAY);
+//        imgpop.setBackground(Color.WHITE);
         Container p = imgpop.getContentPane();
         p.setLayout(new BoxLayout(p, BoxLayout.X_AXIS));
         JLabel lbl = new JLabel();

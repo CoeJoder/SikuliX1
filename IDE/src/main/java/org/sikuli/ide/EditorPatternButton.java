@@ -391,7 +391,8 @@ class EditorPatternButton extends JButton implements ActionListener, Serializabl
 //    }
     g2d.setColor(simBack);
     g2d.fillRoundRect(x - borderW * 2 - w - 1, y, w + borderW * 2 + 1, fontH + borderW * 2 + 1, 3, 3);
-    g2d.setColor(Color.white);
+    g2d.setColor(Color.LIGHT_GRAY);
+//    g2d.setColor(Color.white);
     g2d.drawString(strSim, x - w - 3, y + fontH + 3);
   }
 

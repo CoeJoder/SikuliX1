@@ -83,7 +83,8 @@ public class Visual extends JComponent
   Color color;
   public static Color defColorFront = Color.MAGENTA;
   Color colorFront;
-  public static Color defColorBack = Color.WHITE;
+  public static Color defColorBack = Color.LIGHT_GRAY;
+//  public static Color defColorBack = Color.WHITE;
   Color colorBack;
   public static Color defColorFrame = Color.BLACK;
   Color colorFrame;

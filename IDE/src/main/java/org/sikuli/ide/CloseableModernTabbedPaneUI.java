@@ -359,7 +359,8 @@ class AquaCloseableTabbedPaneUI extends CloseableModernTabbedPaneUI {
     g.drawLine(x + w, y + 2, x + w, y + h);
     g.drawLine(x, y + 2, x, y + h);
     if (isSelected) {
-      g.setColor(Color.white);
+      g.setColor(Color.LIGHT_GRAY);
+//      g.setColor(Color.white);
       g.drawLine(x, y + h, x + w, y + h);
     }
   }

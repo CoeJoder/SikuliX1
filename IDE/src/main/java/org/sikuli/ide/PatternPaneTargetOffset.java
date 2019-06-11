@@ -227,7 +227,8 @@ class PatternPaneTargetOffset extends JPanel implements
 	}
 
 	void paintBackground(Graphics g2d) {
-		g2d.setColor(Color.WHITE);
+		g2d.setColor(Color.LIGHT_GRAY);
+//		g2d.setColor(Color.WHITE);
 		g2d.fillRect(0, 0, getWidth(), getHeight());
 	}
 
@@ -255,7 +256,8 @@ class PatternPaneTargetOffset extends JPanel implements
 		g2d.setColor(Color.BLACK);
 		g2d.drawLine(l.x - CROSS_LEN, l.y + 1, l.x + CROSS_LEN, l.y + 1);
 		g2d.drawLine(l.x + 1, l.y - CROSS_LEN, l.x + 1, l.y + CROSS_LEN);
-		g2d.setColor(Color.WHITE);
+		g2d.setColor(Color.LIGHT_GRAY);
+//		g2d.setColor(Color.WHITE);
 		g2d.drawLine(l.x - CROSS_LEN, l.y, l.x + CROSS_LEN, l.y);
 		g2d.drawLine(l.x, l.y - CROSS_LEN, l.x, l.y + CROSS_LEN);
 	}

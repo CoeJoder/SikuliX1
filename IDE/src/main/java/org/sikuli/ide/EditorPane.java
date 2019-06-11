@@ -301,7 +301,8 @@ public class EditorPane extends JTextPane {
 
       setFont(new Font(PreferencesUser.get().getFontName(), Font.PLAIN, PreferencesUser.get().getFontSize()));
       setMargin(new Insets(3, 3, 3, 3));
-      setBackground(Color.WHITE);
+      setBackground(Color.LIGHT_GRAY);
+//      setBackground(Color.WHITE);
       if (!Settings.isMac()) {
         setSelectionColor(new Color(170, 200, 255));
       }

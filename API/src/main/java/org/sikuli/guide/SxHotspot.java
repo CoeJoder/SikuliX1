@@ -49,7 +49,8 @@ public class SxHotspot extends SxClickable {
     symbol.setFont(f);
     Dimension size = symbol.getPreferredSize();
     symbol.setSize(size);
-    symbol.setForeground(Color.white);
+    symbol.setForeground(Color.LIGHT_GRAY);
+//    symbol.setForeground(Color.white);
     symbol.setLocation(region.x + region.w / 2 - size.width / 2,
             region.y + region.h / 2 - size.height / 2);
 
@@ -57,7 +58,8 @@ public class SxHotspot extends SxClickable {
     Rectangle cc = new Rectangle(symbol.getBounds());
     cc.grow(7, 0);
     circle = new SxCircle(new Region(cc));
-    circle.setForeground(Color.white);
+    circle.setForeground(Color.LIGHT_GRAY);
+//    circle.setForeground(Color.white);
     circle.setShadow(5, 2);
 
     g.content.add(symbol);

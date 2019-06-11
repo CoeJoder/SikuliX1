@@ -30,7 +30,8 @@ public class SxButton extends SxClickable {
     PADDING_X = PADDING_Y = 10;
     fontSize = 18;
     setName(name);
-    setColors(null, null, null, null, Color.WHITE);
+    setColors(null, null, null, null, Color.LIGHT_GRAY);
+//    setColors(null, null, null, null, Color.WHITE);
     mouseOverColor = new Color(0.3f, 0.3f, 0.3f);
     layout = Layout.BOTTOM;
   }

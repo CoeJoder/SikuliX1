@@ -128,7 +128,8 @@ public class CloseableTabbedPane extends JTabbedPane implements MouseListener,
           Color col = g.getColor();
 
           if (mousepressed && mouseover) {
-            g.setColor(Color.WHITE);
+            g.setColor(Color.LIGHT_GRAY);
+//            g.setColor(Color.WHITE);
             g.fillRect(x + 1, y_p, 12, 13);
           }
 

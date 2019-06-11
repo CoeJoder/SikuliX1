@@ -33,7 +33,8 @@ public class PreferencesUser {
   public final static int SIKULI_USER = 2;
   public final static int THUMB_HEIGHT = 50;
   public final static String DEFAULT_CONSOLE_CSS =
-          "body   { font-family:serif; font-size: 12px; }"
+//          "body   { font-family:serif; font-size: 12px; }"
+          "body   { font-family:serif; font-size: 12px; background-color: #D3D3D3; }"
                   + ".normal{ color: black; }"
                   + ".debug { color:#505000; }"
                   + ".info  { color: blue; }"
@@ -56,7 +57,6 @@ public class PreferencesUser {
   public boolean save(String path) {
     try {
       FileOutputStream pout = new FileOutputStream(new File(path));
-      ;
       pref.exportSubtree(pout);
       pout.close();
     } catch (Exception ex) {
